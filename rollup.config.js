@@ -12,7 +12,7 @@ const config = {
   input: 'src/index.js',
   output: {
     format: 'umd',
-    name: 'SkypeApi',
+    name: 'SkypeWebApi',
   },
   plugins: [
     babel({

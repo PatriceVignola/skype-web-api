@@ -14,7 +14,7 @@ import sendFile from './api/sendFile';
 
 import type {Tokens} from './api/login';
 
-class SkypeApi {
+class SkypeWebApi {
   tokens: Tokens;
 
   constructor(tokens?: Tokens) {
@@ -60,4 +60,4 @@ export {
   sendFile,
 };
 
-export default SkypeApi;
+export default SkypeWebApi;
