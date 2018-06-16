@@ -1,6 +1,6 @@
 {
   "name": "skype-web-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An unofficial Skype API for JavaScript.",
   "main": "./lib/index.js",
   "files": [
@@ -8,9 +8,9 @@
   ],
   "scripts": {
     "build-clean": "rimraf lib dist",
-    "build-dist": "ROLLUP_ENV=development rollup -c -o dist/skype-web-api.js --silent",
-    "build-dist-min": "ROLLUP_ENV=production rollup -c -o dist/skype-web-api.min.js --silent",
-    "build-lib": "babel src -d lib --ignore '**/*.test.js' && flow-copy-source src/ lib/ -i '**/*.test.js'",
+    "build-dist": "cross-env BABEL_ENV=rollup ROLLUP_ENV=development rollup -c -o dist/skype-web-api.js --silent",
+    "build-dist-min": "cross-env BABEL_ENV=rollup ROLLUP_ENV=production rollup -c -o dist/skype-web-api.min.js --silent",
+    "build-lib": "cross-env BABEL_ENV=es5 babel src -d lib --ignore '**/*.test.js' && flow-copy-source src/ lib/ -i '**/*.test.js'",
     "build": "yarn build-clean && yarn build-lib && yarn build-dist && yarn build-dist-min",
     "test": "jest --coverage",
     "prettier-lint": "prettier es6 --write src/**/*.js && eslint .",
@@ -63,6 +63,7 @@
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
     "coveralls": "^3.0.1",
+    "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
