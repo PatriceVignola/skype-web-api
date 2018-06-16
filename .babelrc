@@ -1,7 +1,20 @@
 {
-  "presets": [
-    "env"
-  ],
+  "presets": [[
+    "latest", {
+      "es2015": {
+        "modules": false
+      }
+    },
+  ]],
+  "env": {
+    "test": {
+      "presets": [[
+        "env", {
+          "modules": "commonjs"
+        }
+      ]]
+    }
+  },
   "plugins": [
     "transform-flow-strip-types",
     "transform-class-properties"
