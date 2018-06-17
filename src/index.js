@@ -11,6 +11,7 @@ import getMyUserProfile from './api/getMyUserProfile';
 import getUserProfiles from './api/getUserProfiles';
 import login from './api/login';
 import sendFile from './api/sendFile';
+import sendMessage from './api/sendMessage';
 
 import type {Tokens} from './api/login';
 
@@ -45,6 +46,9 @@ class SkypeWebApi {
       this.tokens.registrationToken.value,
     );
 
+  sendMessage = async (text: string, recipientMri: string) =>
+    sendMessage(text, recipientMri, this.tokens.registrationToken.value);
+
   getContacts = async () => getContacts(this.tokens.skypeToken.value);
 
   getMessages = async (contactMri: string) =>
@@ -58,6 +62,7 @@ export {
   getUserProfiles,
   login,
   sendFile,
+  sendMessage,
 };
 
 export default SkypeWebApi;

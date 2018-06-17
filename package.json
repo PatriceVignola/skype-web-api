@@ -1,6 +1,6 @@
 {
   "name": "skype-web-api",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "An unofficial Skype API for JavaScript.",
   "main": "./lib/index.js",
   "files": [
