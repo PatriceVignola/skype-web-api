@@ -13,6 +13,7 @@ import getUserProfiles from './api/getUserProfiles';
 import login from './api/login';
 import sendFile from './api/sendFile';
 import sendMessage from './api/sendMessage';
+import type {UserProfile} from './api/formatUserProfile';
 
 import type {Tokens} from './api/login';
 
@@ -69,5 +70,7 @@ export {
   sendFile,
   sendMessage,
 };
+
+export type {UserProfile};
 
 export default SkypeWebApi;
