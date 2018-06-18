@@ -8,6 +8,7 @@ import 'regenerator-runtime/runtime';
 import getContacts from './api/getContacts';
 import getMessages from './api/getMessages';
 import getMyUserProfile from './api/getMyUserProfile';
+import getUserProfile from './api/getUserProfile';
 import getUserProfiles from './api/getUserProfiles';
 import login from './api/login';
 import sendFile from './api/sendFile';
@@ -30,7 +31,10 @@ class SkypeWebApi {
 
   getMyUserProfile = async () => getMyUserProfile(this.tokens.skypeToken.value);
 
-  getUserProfiles = async (usernames?: string[]) =>
+  getUserProfile = async (username: string) =>
+    getUserProfile(this.tokens.skypeToken.value, username);
+
+  getUserProfiles = async (usernames: string[]) =>
     getUserProfiles(this.tokens.skypeToken.value, usernames);
 
   sendFile = async (
@@ -59,6 +63,7 @@ export {
   getContacts,
   getMessages,
   getMyUserProfile,
+  getUserProfile,
   getUserProfiles,
   login,
   sendFile,
