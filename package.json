@@ -19,9 +19,9 @@
     "validate": "run-p flow test --silent",
     "report-coverage": "coveralls < coverage/lcov.info",
     "pre-release": "run-p prettier-lint validate build && printf \"npm credentials:\\n\" && npm adduser",
-    "release-patch": "yarn pre-release && yarn release-it patch -n",
-    "release-minor": "yarn pre-release && yarn release-it minor -n",
-    "release-major": "yarn pre-release && yarn release-it major -n"
+    "release-patch": "yarn pre-release && yarn release-it patch -n --verbose",
+    "release-minor": "yarn pre-release && yarn release-it minor -n --verbose",
+    "release-major": "yarn pre-release && yarn release-it major -n --verbose"
   },
   "jest": {
     "transform": {
