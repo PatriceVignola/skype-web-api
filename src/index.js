@@ -3,8 +3,6 @@
  * @flow
  */
 
-import 'regenerator-runtime/runtime';
-
 import getContacts from './api/getContacts';
 import getMessages from './api/getMessages';
 import getMyUserProfile from './api/getMyUserProfile';
