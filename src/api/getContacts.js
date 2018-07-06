@@ -97,6 +97,8 @@ export type Contact = {
     subType: ?string,
     dateTime: string,
   }[]),
+  displayName: string,
+  mri: string,
 };
 
 async function getContacts(skypeToken: string): Promise<Contact[]> {
