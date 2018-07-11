@@ -106,9 +106,19 @@ async function sendFile(
 
   const url = `https://client-s.gateway.messenger.live.com/v1/users/ME/conversations/${recipientMri}/messages`;
 
-  const response = await fetch(url, {method: 'POST', headers, body});
+  let response = await fetch(url, {method: 'POST', headers, body});
+  let json = await response.json();
 
-  const json = await response.json();
+  // If the user is on another cloud, we send it to the right one this time
+  if (json.errorCode && json.errorCode === 752) {
+    url = response.headers.get('location');
+    response = await fetch(url, {method: 'POST', headers, body});
+    json = await response.json();
+  }
+
+  if (json.status !== 201) {
+    throw Error('There was an error when attempting to send your file.');
+  }
 
   return json.OriginalArrivalTime;
 }
