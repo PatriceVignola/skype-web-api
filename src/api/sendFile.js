@@ -104,8 +104,7 @@ async function sendFile(
     BehaviorOverride: 'redirectAs404',
   };
 
-  const url = `https://client-s.gateway.messenger.live.com/v1/users/ME/conversations/${recipientMri}/messages`;
-
+  let url = `https://client-s.gateway.messenger.live.com/v1/users/ME/conversations/${recipientMri}/messages`;
   let response = await fetch(url, {method: 'POST', headers, body});
   let json = await response.json();
 
