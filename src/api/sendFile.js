@@ -108,15 +108,15 @@ async function sendFile(
   let response = await fetch(url, {method: 'POST', headers, body});
   let json = await response.json();
 
-  // If the user is on another cloud, we send it to the right one this time
+  // If the user is on a different cloud, send the file to the right cloud
   if (json.errorCode && json.errorCode === 752) {
     url = response.headers.get('location');
     response = await fetch(url, {method: 'POST', headers, body});
     json = await response.json();
   }
 
-  if (json.status !== 201) {
-    throw Error('There was an error when attempting to send your file.');
+  if (response.status !== 201) {
+    throw Error('A problem occurred when sending the file.');
   }
 
   return json.OriginalArrivalTime;
