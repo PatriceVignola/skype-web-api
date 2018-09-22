@@ -178,7 +178,7 @@ The function returns the arrival timestamp of the file in milliseconds since epo
 
 ## `getMessages(contactMri: string): Message[]`
 
-Fetches the messages exchanged by the logged-in user and one of his contacts. `contactMri` is the Windows Live ID of the contact with one of the following formats: `<number>:live:<username` or `<number>:<email>.
+Fetches the messages exchanged by the logged-in user and one of his contacts. `contactMri` is the Windows Live ID of the contact with one of the following formats: `<number>:live:<username` or `<number>:<email>`.
 
 ```js
 const messages = skypeApi.getMessages('8:live:bob');
