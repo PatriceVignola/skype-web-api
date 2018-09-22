@@ -26,7 +26,7 @@ import SkypeWebApi from 'skype-web-api';
 
 # Usage
 
-### `SkypeWebApi()`
+## `SkypeWebApi()`
 
 Initialize a new `SkypeWebApi` object with an empty session.
 
@@ -34,7 +34,7 @@ Initialize a new `SkypeWebApi` object with an empty session.
 const skypeApi = new SkypeWebApi();
 ```
 
-### `login(username: string, password: string): Tokens`
+## `login(username: string, password: string): Tokens`
 
 Login with the Skype credentials of a user.
 
@@ -59,7 +59,7 @@ type Tokens = {
 
 `Tokens` are useful if you're working on a stateless application (e.g. website backend) and want to resume an existing session without requiring the user to login every time. To load a session from existing `Tokens`, refer to the constructor call below. Tokens are valid for 24 hours.
 
-### `SkypeWebApi(tokens?: Tokens)`
+## `SkypeWebApi(tokens?: Tokens)`
 
 Loads an existing user session from a `Tokens` object (defined above).
 
@@ -70,7 +70,7 @@ const skypeApi = new SkypeWebApi(tokens);
 
 `Tokens` expire after 24 hours, after which the user has au authenticate again via the `login()` function.
 
-### `getMyUserProfile(): UserProfile`
+## `getMyUserProfile(): UserProfile`
 
 Fetches the `UserProfile` of the currently logged-in user.
 
@@ -105,7 +105,7 @@ type UserProfile = {
 };
 ```
 
-### `getContacts(): Contact[]`
+## `getContacts(): Contact[]`
 
 Fetches all the currently logged-in user's contacts.
 
@@ -130,7 +130,7 @@ type Contact = {
 };
 ```
 
-### `getUserProfile(username: string): UserProfile`
+## `getUserProfile(username: string): UserProfile`
 
 Fetches the full `UserProfile` of a contact from his username (possibly retrieved from an earlier `getContacts()` call).
 
@@ -141,7 +141,7 @@ const userProfile = skypeApi.getUserProfile(username);
 
 Like `getMyUserProfile()`, this function returns a single `UserProfile`.
 
-### `getUserProfiles(usernames: string[]): UserProfile[]`
+## `getUserProfiles(usernames: string[]): UserProfile[]`
 
 Fetches the full `UserProfile` of many contacts instead of repeatedly calling `getUserProfile()`.
 
@@ -156,7 +156,7 @@ const contactProfiles = skypeApi.getUserProfiles(contactUsernames);
 
 This function returns an array of `UserProfile`.
 
-### `sendMessage(text: string, recipientMri: string)`
+## `sendMessage(text: string, recipientMri: string)`
 
 Sends a message from the current user to one of his contact. `recipientMri` is the Windows Live ID of the contact with one of the following formats: `<number>:live:<username` or `<number>:<email>`. You can get the MRI of a contact with the `getContacts()` function.
 
@@ -164,7 +164,7 @@ Sends a message from the current user to one of his contact. `recipientMri` is t
 skypeApi.sendMessage('Hello World', '8:live:bob');
 ```
 
-### `sendFile(fileBuffer: Buffer, fileName: string, recipientMri: string): number`
+## `sendFile(fileBuffer: Buffer, fileName: string, recipientMri: string): number`
 
 Sends a file from the current user to one of his contact. `recipientMri` is the Windows Live ID of the contact with one of the following formats: `<number>:live:<username` or `<number>:<email>`. You can get the MRI of a contact with the `getContacts()` function. `Buffer` is a standard Node.js buffer obtained by reading a file from the disk.
 
@@ -176,7 +176,7 @@ skypeApi.sendFile(buffer, 'FileName.pdf', '8:live:bob');
 
 The function returns the arrival timestamp of the file in milliseconds since epoch.
 
-### `getMessages(contactMri: string): Message[]`
+## `getMessages(contactMri: string): Message[]`
 
 Fetches the messages exchanged by the logged-in user and one of his contacts. `contactMri` is the Windows Live ID of the contact with one of the following formats: `<number>:live:<username` or `<number>:<email>.
 
