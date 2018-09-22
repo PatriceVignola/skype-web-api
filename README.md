@@ -147,9 +147,9 @@ Fetches the full `UserProfile` of many contacts instead of repeatedly calling `g
 
 ```js
 const contactUsernames = [
-  "Username1",
-  "Username2",
-  "Username3",
+  'Username1',
+  'Username2',
+  'Username3',
 ];
 const contactProfiles = skypeApi.getUserProfiles(contactUsernames);
 ```
